@@ -1,28 +1,12 @@
-const container = document.querySelector('#container');
-var gridContainer = document.createElement('grid-container');
+﻿const container = document.querySelector('.container');
+let size = 16*16
 
-.gridContainer {
-  display: grid;
-  gridTemplateColumns: auto auto auto;
-  backgroundColor: blue;
-  padding: 10px;
+//this function will be used to create the 16x16 grid & turn black on mouseover
+for (i=0; i<size; i++) {
+  const newDiv = document.createElement('div');
+  newDiv.className = 'grid';
+  newDiv.addEventListener('mouseover',(e)=> {
+    e.target.style.backgroundColor = 'black';
+  });
+  container.appendChild(newDiv);
 }
-
-.gridItem {
-  backgroundColor: white;
-  border: 1px solid;
-  padding: 20px;
-}
-
-.div:hover {
-  backgroundColor: blue;
-}
-
-//this variable will be used to create the 16x16 grid
-var sketches = document.createDocumentFragment();
-for (i=0; i<16; i++) {
-  var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item';
-  sketches.appendChild(newDiv);
-}
-gridContainer.appendChild(sketches);
